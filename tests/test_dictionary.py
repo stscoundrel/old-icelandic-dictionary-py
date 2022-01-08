@@ -1,13 +1,13 @@
-from src.old_icelandic_dictionary.dictionary import DictionaryPath, get_dictionary
+from src import old_icelandic_dictionary
 
 
 def test_default_dictionary_has_correct_length() -> None:
-    result = get_dictionary(DictionaryPath.DEFAULT)
+    result = old_icelandic_dictionary.get_default()
     assert len(result) == 29951
 
 
 def test_default_dictionary_has_expected_content() -> None:
-    result = get_dictionary(DictionaryPath.DEFAULT)
+    result =old_icelandic_dictionary.get_default()
 
     assert result[14].word == "afbindi"
     assert result[14].definitions[0] == "n. <i>constipation</i>."
@@ -23,12 +23,12 @@ def test_default_dictionary_has_expected_content() -> None:
 
 
 def test_no_markup_dictionary_has_correct_length() -> None:
-    result = get_dictionary(DictionaryPath.NO_MARKUP)
+    result = old_icelandic_dictionary.get_no_markup()
     assert len(result) == 29951
 
 
 def test_no_markup_dictionary_has_expected_content() -> None:
-    result = get_dictionary(DictionaryPath.NO_MARKUP)
+    result = old_icelandic_dictionary.get_no_markup()
 
     assert result[14].word == "afbindi"
     assert result[14].definitions[0] == "n. constipation."
@@ -44,8 +44,8 @@ def test_no_markup_dictionary_has_expected_content() -> None:
 
 
 def test_dictionary_headwords_match() -> None:
-    dictionary = get_dictionary(DictionaryPath.DEFAULT)
-    no_markup_dictionary = get_dictionary(DictionaryPath.NO_MARKUP)
+    dictionary = old_icelandic_dictionary.get_default()
+    no_markup_dictionary = old_icelandic_dictionary.get_no_markup()
 
     for index, entry in enumerate(dictionary):
         assert entry.word == no_markup_dictionary[index].word
