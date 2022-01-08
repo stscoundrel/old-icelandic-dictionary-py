@@ -1,10 +1,11 @@
 import os
+from . import reader
+from enum import Enum
 from typing import NamedTuple, Tuple
-from json import load
-from strenum import StrEnum
 
-class DictionaryPath(StrEnum):
-    DEFAULT = os.path.dirname(__file__)+'/resources/dictionary.json'
+
+class DictionaryPath(str, Enum):
+    DEFAULT = os.path.dirname(__file__) + "/resources/dictionary.json"
 
 
 class DictionaryEntry(NamedTuple):
@@ -13,11 +14,9 @@ class DictionaryEntry(NamedTuple):
 
 
 def get_dictionary(path: str) -> Tuple[DictionaryEntry, ...]:
-    file = open(path) 
-    raw_data = load(file)
-    file.close()
+    raw_data = reader.read_json(path)
 
-    return tuple( DictionaryEntry(raw_entry['word'], raw_entry['definitions']) for raw_entry in raw_data)
-
-
-
+    return tuple(
+        DictionaryEntry(raw_entry["word"], raw_entry["definitions"])
+        for raw_entry in raw_data
+    )
