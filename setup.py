@@ -5,12 +5,12 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="projectname",
-    version="1.0.0",
+    version="0.1.0",
     author="stscoundrel",
-    description="Project desc",
+    description="Old Icelandic dictionary for Python",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/stscoundrel/python-template",
+    url="https://github.com/stscoundrel/old-icelandic-dictionary-py",
     package_dir={"": "src"},
     packages=setuptools.find_packages(where="src"),
     python_requires=">=3.9",
