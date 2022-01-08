@@ -4,7 +4,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="projectname",
+    name="old-icelandic-dictionary",
     version="1.0.0",
     author="stscoundrel",
     description="Old Icelandic dictionary for Python",
