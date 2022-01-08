@@ -5,7 +5,8 @@ from typing import NamedTuple, Tuple
 
 
 class DictionaryPath(str, Enum):
-    DEFAULT = os.path.dirname(__file__) + "/resources/dictionary.json"
+    DEFAULT = os.path.dirname(__file__) + "/resources/default.json"
+    NO_MARKUP = os.path.dirname(__file__) + "/resources/no-markup.json"
 
 
 class DictionaryEntry(NamedTuple):
