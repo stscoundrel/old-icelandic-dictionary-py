@@ -7,7 +7,7 @@ def test_default_dictionary_has_correct_length() -> None:
 
 
 def test_default_dictionary_has_expected_content() -> None:
-    result =old_icelandic_dictionary.get_default()
+    result = old_icelandic_dictionary.get_default()
 
     assert result[14].word == "afbindi"
     assert result[14].definitions[0] == "n. <i>constipation</i>."
